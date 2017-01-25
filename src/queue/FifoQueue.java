@@ -15,7 +15,25 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	 * @return an iterator over the elements in this queue
 	 */	
 	public Iterator<E> iterator() {
-		return null;
+		return new Iterator<E>(){
+		    int index = 0;
+            QueueNode<E> currentNode = last;
+
+            @Override
+            public boolean hasNext() {
+                return index < size();
+            }
+
+            @Override
+            public E next() {
+                if(hasNext()){
+                    currentNode = currentNode.next;
+                    index++;
+                    return currentNode.element;
+                }
+                else throw new NoSuchElementException("synd");
+            }
+        };
 	}
 
 	/**	
