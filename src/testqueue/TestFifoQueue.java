@@ -88,6 +88,7 @@ public class TestFifoQueue {
 		assertTrue("Queue of strings should be empty", myStringQueue.isEmpty());
 	}
 
+
 	/**
 	 * Test that polling gives elements in right order.
 	 */

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21db1be2-2457-4dbd-a253-c44c1324db0e" name="Default" comment="">
+    <list default="true" id="21db1be2-2457-4dbd-a253-c44c1324db0e" name="Default" comment="Fixat offer();">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/queue/FifoQueue$QueueNode.class" afterPath="$PROJECT_DIR$/bin/queue/FifoQueue$QueueNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/queue/FifoQueue.class" afterPath="$PROJECT_DIR$/bin/queue/FifoQueue.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/sort/RadixSort.class" afterPath="$PROJECT_DIR$/bin/sort/RadixSort.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/testqueue/TestFifoQueue.class" afterPath="$PROJECT_DIR$/bin/testqueue/TestFifoQueue.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/testsort/TestRadixSort.class" afterPath="$PROJECT_DIR$/bin/testsort/TestRadixSort.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testqueue/TestFifoQueue.java" afterPath="$PROJECT_DIR$/src/testqueue/TestFifoQueue.java" />
     </list>
     <ignored path="lab2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,8 +55,8 @@
       <file leaf-file-name="TestFifoQueue.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/testqueue/TestFifoQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-684">
-              <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+            <state relative-caret-position="288">
+              <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -92,6 +93,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/queue/FifoQueue.java" />
+        <option value="$PROJECT_DIR$/src/testqueue/TestFifoQueue.java" />
       </list>
     </option>
   </component>
@@ -601,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485357878361</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixat offer();">
+      <created>1485358025274</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1485358025274</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -703,8 +712,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/testqueue/TestFifoQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-684">
-          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+        <state relative-caret-position="288">
+          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
           <folding />
         </state>
       </provider>
