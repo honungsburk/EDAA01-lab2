@@ -17,5 +17,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="hamcrest-core-1" level="project" />
   </component>
 </module>
