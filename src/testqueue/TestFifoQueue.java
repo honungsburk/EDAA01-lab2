@@ -127,5 +127,31 @@ public class TestFifoQueue {
 		assertTrue("Wrong size after poll", myIntQueue.size() == 0);
 		assertTrue("Queue not empty after poll", myIntQueue.isEmpty());
 	}
+	/** Testar om iteratorns hasNext returnerar false vid tom kö.*/
+	@Test
+	public final void testIteratorOnEmpty() {
+		//----------HasNext fungerar?
+		//Strings
+		Iterator<String> itStrings = myStringQueue.iterator();
+		assertTrue("hasNext returnerar true felaktigt.", itStrings.hasNext() == false);
+		
+		//Ints
+		Iterator<Integer> itInts = myIntQueue.iterator();
+		assertTrue("hasNext returnerar true felaktigt.", itInts.hasNext() == false);
+		
+		//---------Felaktigt bruk av Next() ger rätt error?
+		try {
+			itStrings.next();
+		} catch (Exception e) {
+			assertTrue("Inkorrekt hantering av next() på saknat element.",
+					e instanceof NoSuchElementException);
+		}
+		try {
+			itInts.next();
+		} catch (Exception e) {
+			assertTrue("Inkorrekt hantering av next() på saknat element.",
+					e instanceof NoSuchElementException);
+		}
+	}
 
 }
