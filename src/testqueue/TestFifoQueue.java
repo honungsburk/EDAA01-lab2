@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.NoSuchElementException;
 import java.util.Iterator;
 
@@ -13,17 +14,28 @@ import queue.FifoQueue;
 public class TestFifoQueue {
 	private FifoQueue<Integer> myIntQueue;
 	private FifoQueue<String> myStringQueue;
+	private Iterator<String> itStrings;
+	private Iterator<Integer> itInts;
+
+
+	public void createIt(){
+		itStrings = myStringQueue.iterator();
+		itInts = myIntQueue.iterator();
+	}
 
 	@Before
 	public void setUp() throws Exception {
 		myIntQueue = new FifoQueue<Integer>();
 		myStringQueue = new FifoQueue<String>();
+		//skapar inga iterators då man vill ha lagt till element innan den skapas.
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		myIntQueue = null;
 		myStringQueue = null;
+		itInts = null;
+		itStrings = null;
 	}
 
 	/**
@@ -127,16 +139,20 @@ public class TestFifoQueue {
 		assertTrue("Wrong size after poll", myIntQueue.size() == 0);
 		assertTrue("Queue not empty after poll", myIntQueue.isEmpty());
 	}
+
 	/** Testar om iteratorns hasNext returnerar false vid tom kö.*/
 	@Test
 	public final void testIteratorOnEmpty() {
 		//----------HasNext fungerar?
+
+		//skapa iteratorer
+		itStrings = myStringQueue.iterator();
+		itInts = myIntQueue.iterator();
+
 		//Strings
-		Iterator<String> itStrings = myStringQueue.iterator();
 		assertTrue("hasNext returnerar true felaktigt.", itStrings.hasNext() == false);
 		
 		//Ints
-		Iterator<Integer> itInts = myIntQueue.iterator();
 		assertTrue("hasNext returnerar true felaktigt.", itInts.hasNext() == false);
 		
 		//---------Felaktigt bruk av Next() ger rätt error?
@@ -152,6 +168,44 @@ public class TestFifoQueue {
 			assertTrue("Inkorrekt hantering av next() på saknat element.",
 					e instanceof NoSuchElementException);
 		}
+	}
+
+
+	@Test
+	public final void testIteratorOneElement() {
+
+		myIntQueue.offer(1);
+		itInts = myIntQueue.iterator();
+
+		assertTrue("iterators hasNext() doesn't return true", itInts.hasNext());
+		assertEquals( "int iterator result isn't equal to 1 ",itInts.next().equals(1));
+		assertFalse("iterators hasNext() doesn't return false after been emptied", itInts.hasNext());
+	}
+
+	@Test
+	public final void testIteratorfilled(){
+
+		int[] check = new int[]{1,2,5,2,4,7};
+		int[] result = new int[6];
+
+		myIntQueue.offer(1);
+		myIntQueue.offer(2);
+		myIntQueue.offer(5);
+		myIntQueue.offer(2);
+		myIntQueue.offer(4);
+		myIntQueue.offer(7);
+
+		itInts = myIntQueue.iterator();
+
+		int i = 0;
+
+		while(itInts.hasNext()){
+			result[i] = itInts.next();
+			i++;
+		}
+
+		assertArrayEquals("Array created with iterator isn't equal to int[]{1,2,5,2,4,7}", check, result);
+
 	}
 
 }
