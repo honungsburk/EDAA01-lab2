@@ -98,7 +98,7 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 		else return null;
 	}
 
-	public boolean append(FifoQueue<E> other){
+	public boolean append(FifoQueue<E> other){	//Vi måste göra så att den andra kön töms samtidigt. Står i uppgiften.
 
 		if(other.last == null ) return false;
 		else if(this.last == null) {
