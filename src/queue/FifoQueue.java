@@ -98,22 +98,21 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 		else return null;
 	}
 
-	public boolean append(FifoQueue<E> other){	//Vi måste göra så att den andra kön töms samtidigt. Står i uppgiften.
-
-		if(other.last == null ) return false;
-		else if(this.last == null) {
-			this.last = other.last;
-            this.size = other.size;
-			return true;
-		} else if(other == this) throw new IllegalArgumentException("You can not append a queue on it self");
-		else {
+	public boolean append(FifoQueue<E> other){	
+		if(other.last == null ) return false;	//Andra listan är tom, gör inget.
+		else if(other == this) throw new IllegalArgumentException("You can not append a queue on to itself");
+		else if(this.last != null) {	//Båda listor innehåller element.
 			QueueNode<E> otherfirst = other.last.next;
 			other.last.next = this.last.next;
 			this.last.next = otherfirst;
-			this.last = other.last;
-            this.size += other.size;
-			return true;
-		}
+		}	
+		//Kod nedan körs oavsätt om 'vår' lista innehåller element eller ej.
+		this.last = other.last;
+		this.size += other.size;
+		//Slutligen, töm andra listan:
+		other.last = null;
+		other.size = 0;	//Tillåtet? Finns snyggare sätt?
+		return true;
 	}
 
 
