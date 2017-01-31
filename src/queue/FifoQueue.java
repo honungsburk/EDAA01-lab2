@@ -115,6 +115,8 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 		return true;
 	}
 
+	//public E[] toArray() {}
+
 
 	private static class QueueNode<E> {
 		E element;

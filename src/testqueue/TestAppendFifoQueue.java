@@ -41,6 +41,7 @@ public class TestAppendFifoQueue {
 
         assertTrue("Could not append a queue on an empty queue",firstQueue.append(secondQueue));
         assertTrue("Size isn't correct, " + firstQueue.size() + " shold be" + 5, firstQueue.size() == 5);
+        assertTrue("size of secondQueue isn't == 0", secondQueue.size() == 0);
     }
 
     @Test
@@ -71,6 +72,7 @@ public class TestAppendFifoQueue {
 
         assertTrue("Could not append two non-empty queues", firstQueue.append(secondQueue));
         assertTrue("Size isn't correct, " + firstQueue.size() + " shold be" + 10, firstQueue.size() == 10);
+        assertTrue("size of secondQueue isn't == 0", secondQueue.size() == 0);
 
     }
 
